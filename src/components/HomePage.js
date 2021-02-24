@@ -18,13 +18,13 @@ class HomePage extends Component {
     likeHandler = () => {
         this.setState({
             like:!this.state.like,
-            unlike:this.state.unlike
+            unlike:!this.state.unlike
         })
     }
     dislikeHandler = () => {
         this.setState({
             unlike:!this.state.unlike,
-            like:this.state.like
+            like:!this.state.like
         })
     }
 
@@ -38,8 +38,8 @@ class HomePage extends Component {
             <h1 className="title">{item.name}</h1>
             <div className="thumps__up">
             
-            <FaThumbsUp onClick={this.likeHandler}  style={this.state.like ? {color:'green'} : {color:'red'} }/>
-            <FaThumbsDown onClick={this.dislikeHandler} style={this.state.unlike ? {color:'red'} : {color:'grey'}}/> </div>
+            <FaThumbsUp onClick={this.likeHandler}  style={this.state.like ? {color:'green'} : null }/>
+            <FaThumbsDown onClick={this.dislikeHandler} style={this.state.unlike ? null : {color:'red'}}/> </div>
           
             </div>
         )
