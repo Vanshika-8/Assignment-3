@@ -13,7 +13,7 @@ class ArtWork extends Component {
         console.log(this.props)
         return (
             <div>
-              {data.filter(item => item.id == this.state.currentId).map((item) => {
+              {data.filter(item => item.id.toString() === this.state.currentId).map((item) => {
                     return <div key={item.id} >
                         <img src={item.path} alt={item.name} />
                         <h1>{item.name}</h1>
