@@ -30,7 +30,7 @@ class HomePage extends Component {
 
     render() {
         const myData = data.map(item =>
-            <div key={item.id} className="homepage"> <Link to='/Artwork'>
+            <div key={item.id} className="homepage"> <Link to={`/artwork/${item.id}`}>
                 <img className="homepage__images"
                 src={item.path}
                     alt={item.name} />

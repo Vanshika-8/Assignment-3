@@ -7,7 +7,7 @@ class CartPage extends Component {
     }
     render() { 
         return ( 
-            <div></div>
+            <div><h1>Cart page</h1></div>
          );
     }
 }

@@ -7,6 +7,7 @@ class Checkout extends Component {
     }
     render() { 
         return ( <div>
+            <h1>Checkout page</h1>
             </div> );
     }
 }
