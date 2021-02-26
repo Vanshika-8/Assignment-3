@@ -24,6 +24,7 @@ export const data=[
     {
         id:1,
        name:'art1',
+       count:0,
        path:art1 ,
        description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
        price:300,
@@ -32,6 +33,7 @@ export const data=[
     {
         id:2,
         name:'art2',
+        count:0,
         path:art2 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:900,
@@ -40,6 +42,7 @@ export const data=[
      {
         id:3,
         name:'art3',
+        count:0,
         path:art3,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:700,
@@ -48,6 +51,7 @@ export const data=[
      {
         id:4,
         name:'art4',
+        count:0,
         path:art4,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:600,
@@ -56,6 +60,7 @@ export const data=[
      {
         id:5,
         name:'art5',
+        count:0,
         path:art5,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -64,6 +69,7 @@ export const data=[
      {
         id:6,
         name:'art6',
+        count:0,
         path:art6,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -72,6 +78,7 @@ export const data=[
      {
          id:7,
         name:'art7',
+        count:0,
         path:art7,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -80,6 +87,7 @@ export const data=[
      {
          id:8,
         name:'art8',
+        count:0,
         path:art8,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -88,6 +96,7 @@ export const data=[
      {
         id:9,
         name:'art9',
+        count:0,
         path:art9,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -104,6 +113,7 @@ export const data=[
      {
         id:11,
         name:'art11',
+        count:0,
         path:art11,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -112,6 +122,7 @@ export const data=[
      {
         id:12,
         name:'art12',
+        count:0,
         path:art12,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -120,6 +131,7 @@ export const data=[
      {
         id:13,
         name:'art13',
+        count:0,
         path:art13,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -128,6 +140,7 @@ export const data=[
      {
         id:14,
         name:'art14',
+        count:0,
         path:art14,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -136,6 +149,7 @@ export const data=[
      {
         id:15,
         name:'art15',
+        count:0,
         path:art15,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -144,6 +158,7 @@ export const data=[
      {
         id:16,
         name:'art16',
+        count:0,
         path:art16 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:900,
@@ -152,6 +167,7 @@ export const data=[
      {
         id:17,
         name:'art17',
+        count:0,
         path:art17,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
@@ -160,6 +176,7 @@ export const data=[
      {
         id:18,
         name:'art18',
+        count:0,
         path:art18 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:200,
@@ -168,6 +185,7 @@ export const data=[
      {
         id:19,
         name:'art19',
+        count:0,
         path:art19,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:800,
@@ -176,6 +194,7 @@ export const data=[
      {
         id:20,
         name:'art20',
+        count:0,
         path:art20,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:500,
