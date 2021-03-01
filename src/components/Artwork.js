@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import { FaBookmark } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { data } from '../imageJson';
-import { FaShoppingCart } from 'react-icons/fa';
+import { Button } from '../reusableComponents/button';
+import { AddToCart } from '../reusableComponents/button'
+
+
 class ArtWork extends Component {
     constructor(props) {
         super(props);
@@ -21,51 +26,70 @@ class ArtWork extends Component {
 
     setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
 
+    addItems = (item) => {
+        item.count += 1
+        return item
+
+    }
 
     addToCart = (item) => {
-        //Checking if there is any product in local storage
-        //test case 1:If the item exists in the local storage , we will save it in the array
-        //test case2: if the item does not exist the cart will be empty , then we will add an item to the cart by using this function
-        //test 3:if the item is on the array 
         const localStorageProduct = this.getStorage('data')
-        console.log(localStorageProduct)
-        let newProduct = [item]
-     if (localStorageProduct.length > 0) {
-            const storedCurrrentItem = localStorageProduct.find(item => item.id.toString() === this.state.currentId)
-            console.log(storedCurrrentItem)
-            const currentCount = storedCurrrentItem.count
-            console.log(currentCount)
-            const updatedItem = { ...storedCurrrentItem, count: currentCount + 1 }
-            console.log(updatedItem)
-            // newProduct = [updatedItem, ...localStorageProduct]
-            newProduct=[updatedItem]
-            console.log(newProduct)
 
+        const localItem = localStorageProduct.find(item => item.id.toString() === this.state.currentId)
+        console.log(localItem)
+
+        const filteringIds = localStorageProduct.filter(item => item.id.toString() !== this.state.currentId)
+        console.log(filteringIds)
+        let updatedArray
+        if (localItem) {
+            const updatedItem = this.addItems(localItem)
+            updatedArray = [...filteringIds, updatedItem]
+        } else {
+            const itemsInCart = data.find(item => item.id.toString() === this.state.currentId)
+            const updatedItems = this.addItems(itemsInCart)
+            updatedArray = [...filteringIds, updatedItems]
         }
 
+        this.setStorage('data', updatedArray)
 
-        //adding a new product 
-  this.setStorage('data', newProduct) }
+    }
+
 
 
     render() {
-        // console.log(this.props)
-        // console.log(this.state.currentId)
 
         const filteredData = (data.filter(item => item.id.toString() === this.state.currentId))
         return (
             <div>
                 {filteredData.map((item) => {
-                    return <div key={item.id} className="homepage">
-                        <img className="homepage__images"
-                            src={item.path}
-                            alt={item.name} />
-                        <h1 className="title">{item.name}</h1>
-                        <h1>{item.price}</h1>
-                        <h1>{item.genre}</h1>
-                        <span>{item.description}</span>
-                        {/* ON the on click when we have to pass a parameter we use this function call*/}
-                        <FaShoppingCart onClick={() => this.addToCart(item)} />
+                    return <div key={item.id} className="artwork__page">
+                        <div><Link style={{ textDecoration: 'none' }} to='/'> <Button title='Back to home' /> </Link>
+                            <img className="artwork__img"
+                                src={item.path}
+                                alt={item.name} /></div>
+                        <div className="artwork__details"> <h1 className="artname">{item.name}</h1>
+                            <span className="genre__artwork">Genre:{item.genre}</span>
+                            <div className="description__container">
+                            <h1 className="artname">Specifications: </h1>
+                            <span className="description">{item.description}</span>
+                          
+                            </div>
+                           
+                           
+                            <div className="price">
+                                <span className="artPrice">Price:</span>
+                                <span className="item__price">${item.price}</span>
+                            </div>
+
+                            {/* ON the on click when we have to pass a parameter we use this function call*/}
+
+                            <div className="artwork__addtocart">
+                                <AddToCart onClick={() => this.addToCart(item)} title='Add to cart' />
+                                <FaBookmark className="bookmark__addtocart"/>
+                            </div>
+
+                        </div>
+
                     </div>
                 })}
             </div>

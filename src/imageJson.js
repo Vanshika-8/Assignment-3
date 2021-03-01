@@ -23,7 +23,7 @@ export const data=[
 
     {
         id:1,
-       name:'art1',
+       name:'Art1',
        count:0,
        path:art1 ,
        description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
@@ -32,7 +32,7 @@ export const data=[
     },
     {
         id:2,
-        name:'art2',
+        name:'Art2',
         count:0,
         path:art2 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
@@ -41,7 +41,7 @@ export const data=[
      },
      {
         id:3,
-        name:'art3',
+        name:'Art3',
         count:0,
         path:art3,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
@@ -50,7 +50,7 @@ export const data=[
      },
      {
         id:4,
-        name:'art4',
+        name:'Art4',
         count:0,
         path:art4,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
@@ -59,7 +59,7 @@ export const data=[
      },
      {
         id:5,
-        name:'art5',
+        name:'Art5',
         count:0,
         path:art5,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
