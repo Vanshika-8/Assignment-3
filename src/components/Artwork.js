@@ -66,7 +66,6 @@ class ArtWork extends Component {
    
 
      snackBar=(item)=> {
-         setTimeout(this.snackBar, 1000);
         return (<div className="snackbar__message">
         <span>{item.name} has been added to the cart</span>
         </div>)
