@@ -11,10 +11,14 @@ class ArtWork extends Component {
         super(props);
         this.state = {
             currentId: this.props.match.params.id,
-
+            showSuccessSnackbar:false
         }
     }
 
+
+  
+
+       
     getStorage = (key) => {
         const result = localStorage.getItem(key)
         if (result) {
@@ -32,14 +36,18 @@ class ArtWork extends Component {
 
     }
 
+
+
+
+
     addToCart = (item) => {
         const localStorageProduct = this.getStorage('data')
-
+        
         const localItem = localStorageProduct.find(item => item.id.toString() === this.state.currentId)
-        console.log(localItem)
+    
 
         const filteringIds = localStorageProduct.filter(item => item.id.toString() !== this.state.currentId)
-        console.log(filteringIds)
+      
         let updatedArray
         if (localItem) {
             const updatedItem = this.addItems(localItem)
@@ -49,12 +57,21 @@ class ArtWork extends Component {
             const updatedItems = this.addItems(itemsInCart)
             updatedArray = [...filteringIds, updatedItems]
         }
-
+        this.setState({showSuccessSnackbar:!this.state.showSuccessSnackbar})
         this.setStorage('data', updatedArray)
+       
 
     }
+  
+   
 
+     snackBar=(item)=> {
+         setTimeout(this.snackBar, 1000);
+        return (<div className="snackbar__message">
+        <span>{item.name} has been added to the cart</span>
+        </div>)
 
+     }
 
     render() {
 
@@ -63,7 +80,7 @@ class ArtWork extends Component {
             <div>
                 {filteredData.map((item) => {
                     return <div key={item.id} className="artwork__page">
-                        <div><Link style={{ textDecoration: 'none' }} to='/'> <Button title='Back to home' /> </Link>
+                        <div><Button  history={this.props.history} title='Back to home' /> 
                             <img className="artwork__img"
                                 src={item.path}
                                 alt={item.name} /></div>
@@ -82,9 +99,12 @@ class ArtWork extends Component {
                             </div>
 
                             {/* ON the on click when we have to pass a parameter we use this function call*/}
-
+                             {this.state.showSuccessSnackbar ? this.snackBar(item) : ''}
                             <div className="artwork__addtocart">
-                                <AddToCart onClick={() => this.addToCart(item)} title='Add to cart' />
+                                <AddToCart 
+                                item={item}
+                              clickHandler={ this.addToCart}
+                                title='Add to cart' />
                                 <FaBookmark className="bookmark__addtocart"/>
                             </div>
 
@@ -98,3 +118,4 @@ class ArtWork extends Component {
 }
 
 export default ArtWork;
+
