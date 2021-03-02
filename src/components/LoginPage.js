@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
+
+const passwordRegex= /^[\d\w@-]{8,20}$/i
+const emailRegex=/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})?$/i
+
 class LoginPage extends Component {
     constructor(props) {
         super(props);
@@ -7,7 +11,8 @@ class LoginPage extends Component {
             email: '',
             password: '',
             emailErrorMessage: '',
-            passwordErrorMessage: ''
+            passwordErrorMessage: '',
+           
         }
     }
 
@@ -34,8 +39,18 @@ class LoginPage extends Component {
                 passwordErrorMessage: 'Please enter a valid password'
             })
         }
-        
 
+        if((!passwordRegex.test(password)) && password!==''){
+            this.setState({
+                passwordErrorMessage:'Please enter a valid password with 20 digits and special char'
+            })
+        }
+       if((!emailRegex.test(email))  && email!==''){
+           this.setState({
+               emailErrorMessage:'Please enter a valid email with @ and proper email'
+           })
+       }
+     
     }
 
 
