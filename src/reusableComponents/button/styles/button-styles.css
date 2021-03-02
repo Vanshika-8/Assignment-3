@@ -1,0 +1,32 @@
+svg.arrow__logo {
+    padding-top: 24px;
+}
+
+.backtohome__link {
+   
+    text-decoration: none;
+    font-size: unset;
+    font-weight: bold;
+    color: var(--red-color);
+    border: 1px solid var(--red-color);
+    padding: -16px;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.addtocart__link {
+    cursor: pointer;
+    width: 121px;
+    margin-right: 350px;
+    text-decoration: none;
+    font-size: unset;
+    font-weight: bold;
+    color: var(--red-color);
+    border: 1px solid var(--red-color);
+    padding: -16px;
+    background-color: white;
+    padding: 10px;
+}
+
+
