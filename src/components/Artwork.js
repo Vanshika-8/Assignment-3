@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { FaBookmark } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { data } from '../imageJson';
-import { Button } from '../reusableComponents/button';
-import { AddToCart } from '../reusableComponents/button'
+import { AddToCart, Button } from '../reusableComponents/button';
 
 
 class ArtWork extends Component {
@@ -64,13 +62,15 @@ class ArtWork extends Component {
     }
   
    
-
+    
      snackBar=(item)=> {
         return (<div className="snackbar__message">
-        <span>{item.name} has been added to the cart</span>
+        <span>{item.name} is added to the cart</span>
         </div>)
+}
 
-     }
+
+   
 
     render() {
 
@@ -99,11 +99,18 @@ class ArtWork extends Component {
 
                             {/* ON the on click when we have to pass a parameter we use this function call*/}
                              {this.state.showSuccessSnackbar ? this.snackBar(item) : ''}
-                            <div className="artwork__addtocart">
+
+                            <div className="artwork__addtocart"  
+                            onClick={()=>{
+                                this.setState({ showSuccessSnackbar: true }, () => {
+                                setTimeout(() => {
+                                  this.setState({ showSuccessSnackbar: false });
+                                }, 3000);
+                              })}}>
                                 <AddToCart 
                                 item={item}
-                              clickHandler={ this.addToCart}
-                                title='Add to cart' />
+                            clickHandler={this.addToCart}
+                              title='Add to cart' />
                                 <FaBookmark className="bookmark__addtocart"/>
                             </div>
 
@@ -117,4 +124,4 @@ class ArtWork extends Component {
 }
 
 export default ArtWork;
-
+//  {/* clickHandler={ this.addToCart}*/}

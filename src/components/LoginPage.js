@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-
 const passwordRegex= /^[\d\w@-]{8,20}$/i
-const emailRegex=/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})?$/i
+const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
 
 class LoginPage extends Component {
     constructor(props) {
@@ -19,7 +18,6 @@ class LoginPage extends Component {
     validateHandler = (e) => {
         e.preventDefault();
         const { email, password } = this.state
-        console.log(this.state)
         if (email === '' && password === '') {
             this.setState({
                 emailErrorMessage: 'Please enter a valid email address',
@@ -50,16 +48,23 @@ class LoginPage extends Component {
                emailErrorMessage:'Please enter a valid email with @ and proper email'
            })
        }
+       if(email!=='' && password!=='')
+       {
+          this.redirectHandler()
+       }
+       return
      
     }
 
+     redirectHandler = () => {
+         console.log(this.props)
+        this.props.history.push('/')
+    }
 
     handleChange = (e) => {
 
         let name = e.target.name
         let value = e.target.value
-
-        console.log(name, 'name', value, 'value')
         this.setState({
             [name]: value
         })
@@ -68,10 +73,11 @@ class LoginPage extends Component {
 
 
     render() {
+
         return (
 
             <div className="maincontainer__form">
-                <div className="login__form">
+                <form  className="login__form">
                     <h1 className="login__heading">Login</h1>
                     <div className="login__email">
 
@@ -98,9 +104,9 @@ class LoginPage extends Component {
 
 
                     </div>
-
-                    <button onClick={this.validateHandler} className="login__submitbtn">Submit</button>
-                </div>
+                  
+                    <button onClick={this.validateHandler } className="login__submitbtn">Submit</button>
+                </form>
             </div>
 
 

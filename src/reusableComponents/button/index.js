@@ -21,8 +21,8 @@ return(
 export const AddToCart=(props)=>{
 
     const addingItems=(item)=>{
-        console.log(props)
-        props.clickHandler(props.item)
+    
+props.clickHandler(props.item)
     }
 
     return(
