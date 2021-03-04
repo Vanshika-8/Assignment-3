@@ -48,7 +48,7 @@ class CartPage extends Component {
     startShopping=()=>{
         return(
             <div className="shopping__items">
-            <Link className="continueShopping" to='/'><Arrow className="arrow__logo" /><span>Continue Shopping</span></Link>
+            <Link className="continueShopping " to='/'><Arrow className="arrow__logo" /><span>Continue Shopping</span></Link>
                 </div>
             
         )
@@ -58,11 +58,21 @@ class CartPage extends Component {
         return(
     <React.Fragment>
             <div className="total__price-shopping">
-                  <span className="total">Total:${this.getStorage('data').map(item=>item.price).reduce((acc,total)=>{
+            <span className="heading__total">Total</span>
+                  <span className="total">${this.getStorage('data').map(item=>item.price).reduce((acc,total)=>{
                 return acc+total
             },0)}</span>
             </div>
-            <div className="checkout"><Link className="continueShopping" to='/Checkout'><Arrow className="arrow__logo" /><span>Checkout</span></Link></div> </React.Fragment>
+            </React.Fragment>
+        )
+    }
+
+
+    checkout=()=>{
+        return(
+            <React.Fragment>
+            <div className="checkout"><Link className="continueShopping" to='/Checkout'><Arrow className="arrow__logo" /><span>Checkout</span></Link></div>
+            </React.Fragment>
         )
     }
 
@@ -97,6 +107,7 @@ class CartPage extends Component {
                    {this.state.cartItems.length > 0  &&    this.cartItems()}
                {this.state.cartItems.length>0 ? this.shoppingCart() :''}
                {this.state.cartItems.length>0 ? this.startShopping() : ''}
+               {this.state.cartItems.length>0 ? this.checkout() : ''}
             
              
               <div>{this.clearStorage('data')}</div>

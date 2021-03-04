@@ -43,8 +43,9 @@ a.redirecting__links {
 .homePage__list {
     display: grid;
     grid-template-columns: 200px 200px 200px 200px;
+    justify-content: center;
     column-gap: 7em;
-    padding-left: 80px;
+    padding-right: 27px;
     margin-bottom: 30px;
 }
 
@@ -78,8 +79,11 @@ a.redirecting__links {
         margin: 20px;
     }
     .homePage__list {
+        
         grid-template-columns: 200px;
-        padding-left: 150px;
+    justify-content: center;
+    align-items: center;
+    padding-right: 202px;
     }
 
     .logo {
@@ -88,7 +92,7 @@ a.redirecting__links {
         margin-left: 134px;
     }
     .artwork__page {
-       margin-left:-300px
+        margin-left: -2px;
        
     }
 
@@ -313,19 +317,19 @@ img.artwork__img {
 }
 
 .snackbar__message {
-    /* visibility: hidden; */
     min-width: 250px;
     margin-left: 116px;
-    background-color: #333;
+    background-color: var(--snackbar-color);
     color: #fff;
     text-align: center;
     border-radius: 2px;
     padding: 16px;
     position: fixed;
     z-index: 1;
-    left: 50%;
-    bottom: 30px;
+    top: 70px;
+    right:40px;
     font-size: 17px;
+    left: 60%;
   }
 
   .show {
@@ -338,7 +342,7 @@ img.artwork__img {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 24px 131px;
+    margin: 18px 131px;
     background: white;
     border: 1px solid #f4f4f4;
     width: 70%;
@@ -375,7 +379,7 @@ img.cart__image {
     border: 1px solid;
     height: 4vh;
     width: 3vw;
-    padding: 6px 11px 11px 11px ;
+    padding: 3px 10px 4px 11px;
 }
 
 .cart__price-count {
@@ -400,19 +404,11 @@ svg.plus__items {
     margin-left: 1em;
 }
 
-.cartpage {
-    margin-top: -41px;
-    background: #f4f4f4;
-    width: 80vw;
-   
-    height: 84vh;
-    line-height: 0.2em;
-    margin-left: 140px;
-}
 
 .total__price-shopping {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
+    align-items: baseline;
 }
 
 a.continueShopping {
@@ -420,26 +416,24 @@ a.continueShopping {
     text-decoration: none;
     color: var(--red-color);
     border: 1px solid var(--red-color);
-    margin: 121px;
+    margin-left: 135px;
     padding: 6px;
 }
 
 
-.shopping__items {
-    margin-right: 250px;
-}
 
 h1.cart__heading {
     margin: 28px 450px;
 }
 
 span.total {
-    margin: 15px 105px;
+    margin: 15px 159px;
+    color:var(--totalprice-color);
+    font-size: larger;
+    font-weight: 900;
 }
 
-.checkout {
-    margin-left: 360px;
-}
+
 
 .maincheckout__container {
     margin-top: -41px;
@@ -471,3 +465,30 @@ text-align: center;
         margin-left: 390px;
         margin-top: 74px;
     } 
+
+    .checkout {
+        margin-top:-13px;
+        justify-content: center;
+    margin-left: 298px;
+    }
+
+    .cartpage {
+        display: grid;
+    margin-top: -40px;
+    background: #f4f4f4;
+    width: 80vw;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 85vh;
+    line-height: 0.2em;
+    margin-left: 124px;
+    }
+
+    .shopping__items {
+        justify-content: right;
+        margin-top: -44px;
+    }
+
+    span.heading__total {
+        margin-right: -89px;
+    }
