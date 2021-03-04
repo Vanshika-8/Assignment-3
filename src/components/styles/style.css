@@ -65,20 +65,37 @@ a.redirecting__links {
 }
 
 @media only screen and (max-width: 600px) {
-    .navBar__list {
-        display: flex;
-       flex-direction: row;
-        text-align: center;
-        width: 80%;
-        margin: 90px;
+    ul.navBar__list {
+        display: grid;
+    grid-template-rows: 20px 20px 20px 20px 20px;
+        /* text-align: center; */
+        /* width: 98%; */
+        list-style: none;
+        text-decoration: none;
+        margin-left: -90px;
     }
     .navBar {
         margin: 20px;
     }
     .homePage__list {
         grid-template-columns: 200px;
-        padding-left: 120px;
+        padding-left: 150px;
     }
+
+    .logo {
+        display: grid;
+        grid-template-rows: 32px 28px;
+        margin-left: 134px;
+    }
+    .artwork__page {
+       margin-left:-300px
+       
+    }
+
+    img.artwork__img {
+    width: 0vw;
+    }
+    
 }
 
 .maincontainer__form {
