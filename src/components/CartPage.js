@@ -115,9 +115,10 @@ class CartPage extends Component {
                {this.state.cartItems.length>0 ? this.shoppingCart() :''}
                {this.state.cartItems.length>0 ? this.startShopping() : ''}
                {this.state.cartItems.length>0 ? this.checkout() : ''}
+              
             
              
-              <div>{this.clearStorage('data')}</div>
+              <div> {this.state.cartItems.length>0 ? '' : this.clearStorage('data')}</div>
             </div>
         );
     }
