@@ -6,7 +6,7 @@ import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
 import ArtWork from './components/Artwork';
 import CartPage from './components/CartPage';
-// import Checkout from './components/Checkout';
+import Checkout from './components/Checkout';
 import './components/styles/style.css'
 
 import { NavBar } from './components/NavBar';
@@ -20,11 +20,11 @@ class App extends Component {
      <NavBar/>
       <Switch>
       <Route exact path='/'><HomePage/></Route>
-      <Route exact path='/login'><LoginPage/></Route>
-      <Route exact path='/register'><RegisterPage/></Route>
+      <Route exact path='/login' component={LoginPage}></Route>
+      <Route exact path='/register' component={RegisterPage}></Route>
       <Route path='/artwork/:id' component={ArtWork}></Route>
       <Route exact path='/cart'><CartPage/></Route>
-      {/* <Route exact path='/Checkout'><Checkout/></Route>*/}
+       <Route exact path='/Checkout'><Checkout/></Route>
      
      </Switch>
       </div>
