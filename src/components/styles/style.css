@@ -492,3 +492,5 @@ text-align: center;
     span.heading__total {
         margin-right: -89px;
     }
+
+    .cart__empty {margin: 45px;}

@@ -90,7 +90,7 @@ class CartPage extends Component {
       const res=localStorage.getItem(key)
       if(res===null){
           return <div style={{display:'flex' , flexDirection:'column',justifyContent:'center',alignItems:'center',margin:'75px' }}>
-         <div><h2 >The Cart is empty</h2></div> 
+         <div ><h2 className="cart__empty">The Cart is empty</h2></div> 
          <div>{this.startShopping()}</div> 
           </div>
          
