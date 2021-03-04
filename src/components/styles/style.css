@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -69,7 +67,7 @@ a.redirecting__links {
 @media only screen and (max-width: 600px) {
     ul.navBar__list {
         display: grid;
-    grid-template-rows: 20px 20px 20px 20px 20px;
+        grid-template-rows: 20px 20px 20px 20px 20px;
         /* text-align: center; */
         /* width: 98%; */
         list-style: none;
@@ -80,11 +78,10 @@ a.redirecting__links {
         margin: 20px;
     }
     .homePage__list {
-        
         grid-template-columns: 200px;
-    justify-content: center;
-    align-items: center;
-    padding-right: 202px;
+        justify-content: center;
+        align-items: center;
+        padding-right: 202px;
     }
 
     .logo {
@@ -94,13 +91,11 @@ a.redirecting__links {
     }
     .artwork__page {
         margin-left: -2px;
-       
     }
 
     img.artwork__img {
-    width: 0vw;
+        width: 0vw;
     }
-    
 }
 
 .maincontainer__form {
@@ -124,20 +119,16 @@ a.redirecting__links {
     margin-left: 26.5rem;
 }
 
-
-
-
-
 button.login__submitbtn,
 .register__submitbtn {
-   color:var(--red-color);
+    color: var(--red-color);
     background-color: var(--mainformbackground-color);
     width: 10rem;
     height: 2rem;
     font-size: large;
     margin: 20px;
     font-weight: bold;
-    border:1px solid var(--red-color);
+    border: 1px solid var(--red-color);
     outline: none;
     cursor: pointer;
 }
@@ -196,9 +187,6 @@ span.artwork__genre {
     line-height: 2.3rem;
 }
 
-
-
-
 a.backtohome__link {
     text-decoration: none;
     color: var(--red-color);
@@ -219,7 +207,7 @@ a.backtohome__link {
 }
 
 .email__input-wrapper,
-.password__input-wrapper{
+.password__input-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -240,38 +228,37 @@ a.backtohome__link {
 .errorMessages {
     font-size: 0.85em;
     text-align: start;
-    color:var(--red-color);
+    color: var(--red-color);
     font-weight: 800;
 }
 
-
-.errorBorder{
-    border:1px solid var(--red-color);
+.errorBorder {
+    border: 1px solid var(--red-color);
 }
 
 svg.logo__input {
     margin-right: -23px;
     z-index: 1;
-    color:var(--grey-color1);
+    color: var(--grey-color1);
 }
 
 svg.arrow__logo {
     padding-top: 24px;
 }
 
-.activeLink{
-    color:black;
+.activeLink {
+    color: black;
 }
 
-.activeLink path{
-    fill:black
+.activeLink path {
+    fill: black;
 }
 
-.shoppingLink{
-    color:var(--red-color);
-    } 
+.shoppingLink {
+    color: var(--red-color);
+}
 
-.shoppingLink path{
+.shoppingLink path {
     fill: var(--red-color);
 }
 
@@ -303,13 +290,12 @@ svg.bookmark__addtocart {
     margin: 11px;
 }
 
-span.genre__artwork ,
+span.genre__artwork,
 span.description,
-span.item__price{
+span.item__price {
     color: grey;
     font-weight: bold;
 }
-
 
 img.artwork__img {
     width: 34vw;
@@ -328,28 +314,14 @@ img.artwork__img {
     position: fixed;
     z-index: 1;
     top: 70px;
-    right:40px;
+    right: 40px;
     font-size: 17px;
     left: 60%;
-  }
+}
 
-  .show {
+.show {
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-
-  .cart__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 18px 131px;
-    background: white;
-    border: 1px solid #f4f4f4;
-    width: 70%;
-    height: 25vh;
-    box-shadow: 20px 20px 50px hsl(0, 26%, 93%);
-    line-height: 0.2rem;
 }
 
 img.cart__image {
@@ -397,7 +369,6 @@ img.cart__image {
 }
 
 svg.minus__items {
-
     margin-right: 1em;
 }
 
@@ -405,36 +376,38 @@ svg.plus__items {
     margin-left: 1em;
 }
 
-
 .total__price-shopping {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: baseline;
 }
 
 a.continueShopping {
-
     text-decoration: none;
     color: var(--red-color);
-    border: 1px solid var(--red-color);
+    border: none;
     margin-left: 135px;
     padding: 6px;
 }
 
+.shoppingCheckout {
+    text-decoration: none;
+    color: var(--red-color);
 
+}
 
 h1.cart__heading {
-    margin: 28px 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 span.total {
     margin: 15px 159px;
-    color:var(--totalprice-color);
+    color: var(--totalprice-color);
     font-size: larger;
     font-weight: 900;
 }
-
-
 
 .maincheckout__container {
     margin-top: -41px;
@@ -446,35 +419,40 @@ span.total {
     line-height: 3rem;
 }
 h1.thankyou__message {
-    font-family: 'Italianno', cursive;
+    font-family: "Italianno", cursive;
     color: green;
     font-size: 137px;
     margin: 184px 199px;
     font-weight: 100;
-text-align: center;
+    text-align: center;
 }
 
+h2.successmessage__shopping {
+    margin-top: -126px;
+    margin-left: 340px;
+}
 
-    h2.successmessage__shopping {
-        margin-top: -126px;
-        margin-left: 340px;
-      
-  
-    }
+.unsuccessmessage__shopping {
+    margin-left: 390px;
+    margin-top: 74px;
+}
 
-    .unsuccessmessage__shopping{
-        margin-left: 390px;
-        margin-top: 74px;
-    } 
+.checkout {
+    display: flex;
+    width: 90px;
+    border: 1px solid var(--red-color);
+    height: 30px;
+    justify-items: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-left: 480px;
 
-    .checkout {
-        margin-top:-13px;
-        justify-content: center;
-    margin-left: 298px;
-    }
 
-    .cartpage {
-        display: grid;
+}
+
+.cartpage {
+    display: grid;
     margin-top: -40px;
     background: #f4f4f4;
     width: 80vw;
@@ -483,15 +461,33 @@ text-align: center;
     height: 85vh;
     line-height: 0.2em;
     margin-left: 124px;
-    }
+}
 
-    .shopping__items {
-        justify-content: right;
-        margin-top: -44px;
-    }
+.cart__container {
+    display: flex;
 
-    span.heading__total {
-        margin-right: -89px;
-    }
+    flex-direction: row;
 
-    .cart__empty {margin: 45px;}
+    justify-content: center;
+    align-items: end;
+    margin: 18px 131px;
+    background: white;
+    border: 1px solid #f4f4f4;
+    width: 58vw;
+    height: 25vh;
+    box-shadow: 20px 20px 50px hsl(0deg 26% 93%);
+    line-height: 0.2rem;
+}
+
+.shopping__items {
+    justify-content: right;
+    margin-top: -44px;
+}
+
+span.heading__total {
+    margin-right: -89px;
+}
+
+.cart__empty {
+    margin: 45px;
+}

@@ -70,6 +70,14 @@ class ArtWork extends Component {
     }
 
 
+    settingTimeOut=()=>{
+        this.setState({ showSuccessSnackbar: true }, () => {
+            setTimeout(() => {
+                this.setState({ showSuccessSnackbar: false });
+            }, 2000);
+        })
+    }
+
 
 
     render() {
@@ -100,15 +108,7 @@ class ArtWork extends Component {
                             {/* ON the on click when we have to pass a parameter we use this function call*/}
                             {this.state.showSuccessSnackbar ? this.snackBar(item) : ''}
 
-                            <div className="artwork__addtocart"
-                                onClick={() => {
-                                    this.setState({ showSuccessSnackbar: true }, () => {
-                                        setTimeout(() => {
-                                            this.setState({ showSuccessSnackbar: false });
-                                        }, 3000);
-                                    })
-                                }}
-                            >
+                            <div onClick={this.settingTimeOut}    className="artwork__addtocart" >
                                 <AddToCart
                                     item={item}
                                     clickHandler={this.addToCart}
