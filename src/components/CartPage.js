@@ -68,10 +68,17 @@ class CartPage extends Component {
     }
 
 
+    clearingItems=()=>{
+        const itemsClearedOut=localStorage.clear()
+        console.log(itemsClearedOut);
+    }
+
+
     checkout=()=>{
+        
         return(
             <React.Fragment>
-            <div className="checkout"><Link className="continueShopping" to='/Checkout'><Arrow className="arrow__logo" /><span>Checkout</span></Link></div>
+            <div onClick={this.clearingItems()} className="checkout"><Link className="continueShopping" to='/Checkout'><Arrow className="arrow__logo" /><span>Checkout</span></Link></div>
             </React.Fragment>
         )
     }

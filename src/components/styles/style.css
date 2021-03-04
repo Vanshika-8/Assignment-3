@@ -45,8 +45,9 @@ a.redirecting__links {
     grid-template-columns: 200px 200px 200px 200px;
     justify-content: center;
     column-gap: 7em;
-    padding-right: 27px;
-    margin-bottom: 30px;
+    grid-auto-flow: row;
+    align-items: center;
+    justify-items: center;
 }
 
 .homepage {
