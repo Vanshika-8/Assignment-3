@@ -18,12 +18,15 @@ class HomePage extends Component {
         let updateBookMark = this.state.cards.map((item) => {
             if (item.id === id) {
                 item.bookmark = !item.bookmark
+
             }
             return item
         })
         this.setState({
             cards: updateBookMark,
         })
+
+
     }
 
     getCards = () => {

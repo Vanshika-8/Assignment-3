@@ -36,9 +36,9 @@ class CartPage extends Component {
 
     cartItems = () => {
         return (
-            <span>{this.state.cartItems.map((item) => {
+            <div className="cartpage__header">{this.state.cartItems.map((item) => {
                 return <div className="cart__container" key={item.id}>
-                    <div >
+                    <div className="cards__items">
                         <img className="cart__image"
                             src={item.path}
                             alt={item.name} /></div>
@@ -53,7 +53,7 @@ class CartPage extends Component {
                             </div>
                             <span className="art-price">${item.price}</span></div>
                     </div>  </div>
-            })}</span>
+            })}</div>
         )
     }
 
@@ -71,7 +71,7 @@ class CartPage extends Component {
         return (
             <React.Fragment>
                 <div className="total__price-shopping">
-                <span>{this.startShopping()}</span>
+                 {this.startShopping()}
                 <div className="total__price">
                 <span className="heading__total">Total</span>
                     <span className="total">${this.state.total}</span></div>
@@ -93,9 +93,9 @@ class CartPage extends Component {
         //1.Anonymous function
         //2.Simple calling of a function.
         return (
-            <React.Fragment>
-                <div onClick={this.clearingItems} className="checkout"><Link className="shoppingCheckout" to='/Checkout'><span  >Checkout</span></Link></div>
-            </React.Fragment>
+            <div className="checkout__name" >
+                <div onClick={this.clearingItems} className="checkout"><Link className="shoppingCheckout" to='/Checkout'><div  >Checkout</div></Link></div>
+            </div>
         )
     }
 

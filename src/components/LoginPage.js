@@ -75,7 +75,7 @@ class LoginPage extends Component {
     render() {
 
         return (
-
+<div className="form-login">
             <div className="maincontainer__form">
                 <form  className="login__form">
                     <h1 className="login__heading">Login</h1>
@@ -107,6 +107,7 @@ class LoginPage extends Component {
                   
                     <button onClick={this.validateHandler } className="login__submitbtn">Submit</button>
                 </form>
+            </div>
             </div>
 
 

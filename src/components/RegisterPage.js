@@ -104,6 +104,7 @@ class RegisterPage extends Component {
     }
     render() {
         return (
+            <div className="form-register">
             <div className="maincontainer__form">
             <form className="register__form">
                 <h1 className="register__heading">Register</h1>
@@ -149,6 +150,7 @@ class RegisterPage extends Component {
 
                 <button onClick={this.validateHandler} className="register__submitbtn">Submit</button>
                 </form>
+            </div>
             </div>
 
         );

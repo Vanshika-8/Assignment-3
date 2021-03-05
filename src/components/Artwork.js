@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FaBookmark } from 'react-icons/fa';
+import { FaBookmark,FaCheckCircle } from 'react-icons/fa';
 import { data } from '../imageJson';
 import { AddToCart, Button } from '../reusableComponents/button';
 
@@ -61,7 +61,7 @@ class ArtWork extends Component {
 
     snackBar = (item) => {
         return (<div className="snackbar__message">
-            <span>{item.name} is added to the cart</span>
+            <span><FaCheckCircle/>{item.name} is added to the cart</span>
         </div>)
     }
 
@@ -80,7 +80,7 @@ class ArtWork extends Component {
 
         const filteredData = (data.filter(item => item.id.toString() === this.state.currentId))
         return (
-            <div>
+            <div className="artwork-cards">
                 {filteredData.map((item) => {
                     return <div key={item.id} className="artwork__page">
                         <div><Button history={this.props.history} title='Back to home' />

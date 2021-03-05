@@ -98,6 +98,7 @@ a.redirecting__links {
     }
 }
 
+
 .maincontainer__form {
     display: flex;
     justify-content: center;
@@ -116,7 +117,6 @@ a.redirecting__links {
     padding: 2em;
     box-shadow: 0 0 20px rgb(0 0 0 / 20%);
     overflow: hidden;
-    margin-left: 26.5rem;
 }
 
 button.login__submitbtn,
@@ -175,17 +175,7 @@ span.artwork__genre {
     padding: 30px;
 }
 
-.artwork__page {
-    display: flex;
-    align-items: flex-start;
-    background: white;
-    box-shadow: 20px 20px 50px #888888;
-    width: 85%;
-    height: 95%;
-    padding: 33px;
-    margin-left: 120px;
-    line-height: 2.3rem;
-}
+ 
 
 a.backtohome__link {
     text-decoration: none;
@@ -300,12 +290,11 @@ span.item__price {
 img.artwork__img {
     width: 34vw;
     margin-top: 40px;
-    height: 82vh;
+   height: 50vh;
 }
 
 .snackbar__message {
     min-width: 250px;
-    margin-left: 116px;
     background-color: var(--snackbar-color);
     color: #fff;
     text-align: center;
@@ -313,10 +302,9 @@ img.artwork__img {
     padding: 16px;
     position: fixed;
     z-index: 1;
-    top: 70px;
-    right: 40px;
+    top: 81px;
+    right: 60px;
     font-size: 17px;
-    left: 60%;
 }
 
 .show {
@@ -325,15 +313,14 @@ img.artwork__img {
 }
 
 img.cart__image {
-    width: 9vw;
-    height: 18vh;
-    margin: 30px 80px 20px -150px;
+    width: 15vw;
+    height: 25vh;
+    padding: 20px;
 }
 
 .cart__artname-genre {
     display: grid;
     grid-template-rows: 60px 60px 60px;
-    margin-right: -170px;
 }
 
 .artname-cart {
@@ -351,21 +338,23 @@ img.cart__image {
 .art-count {
     border: 1px solid;
     height: 4vh;
-    width: 3vw;
-    padding: 3px 10px 4px 11px;
+    padding: 9px 10px 5px 11px;
 }
 
 .cart__price-count {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+    align-content: space-between;
 }
-
 .art-price {
     margin-left: 120px;
 }
 
 .count {
-    margin-left: -28px;
+   display: flex;
+   align-items: baseline;
 }
 
 svg.minus__items {
@@ -386,14 +375,12 @@ a.continueShopping {
     text-decoration: none;
     color: var(--red-color);
     border: none;
-    margin-left: 135px;
-    padding: 6px;
+    font-weight: 800;
 }
 
 .shoppingCheckout {
     text-decoration: none;
     color: var(--red-color);
-
 }
 
 h1.cart__heading {
@@ -402,8 +389,8 @@ h1.cart__heading {
     align-items: center;
 }
 
-span.total {
-    margin: 15px 159px;
+.total {
+    margin-left: 10px;
     color: var(--totalprice-color);
     font-size: larger;
     font-weight: 900;
@@ -444,11 +431,8 @@ h2.successmessage__shopping {
     height: 30px;
     justify-items: center;
     align-items: center;
-    -ms-flex-pack: center;
+    font-weight: 800;
     justify-content: center;
-    margin-left: 480px;
-
-
 }
 
 .cartpage {
@@ -465,15 +449,12 @@ h2.successmessage__shopping {
 
 .cart__container {
     display: flex;
-
     flex-direction: row;
-
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: end;
-    margin: 18px 131px;
     background: white;
     border: 1px solid #f4f4f4;
-    width: 58vw;
+    width: 50vw;
     height: 25vh;
     box-shadow: 20px 20px 50px hsl(0deg 26% 93%);
     line-height: 0.2rem;
@@ -484,10 +465,44 @@ h2.successmessage__shopping {
     margin-top: -44px;
 }
 
-span.heading__total {
-    margin-right: -89px;
-}
-
 .cart__empty {
     margin: 45px;
+}
+
+.form-login,
+.form-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.cartpage__header {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.checkout__name {
+    display: flex;
+    justify-content: center;
+}
+
+.artwork-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.artwork__page {
+   display: flex;
+    justify-content: center;
+   align-items: center;
+    background: white;
+    -webkit-box-shadow: 20px 20px 50px #888888;
+    box-shadow: 20px 20px 50px #888888;
+    height: 80vh;
+    padding: 33px;
+   line-height: 2.3rem;
+   margin: 0px 30px;
 }
