@@ -28,7 +28,8 @@ export const data=[
        path:art1 ,
        description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
        price:300,
-       genre:'modern' 
+       genre:'modern',
+       bookmark:false
     },
     {
         id:2,
@@ -37,7 +38,8 @@ export const data=[
         path:art2 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:900,
-        genre:'traditional' 
+        genre:'traditional',
+        bookmark:false
      },
      {
         id:3,
@@ -46,7 +48,8 @@ export const data=[
         path:art3,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:700,
-        genre:'modern' 
+        genre:'modern' ,
+        bookmark:false
      },
      {
         id:4,
@@ -55,7 +58,8 @@ export const data=[
         path:art4,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:600,
-        genre:'abstract' 
+        genre:'abstract',
+        bookmark:false 
      },
      {
         id:5,
@@ -64,7 +68,8 @@ export const data=[
         path:art5,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false 
      },
      {
         id:6,
@@ -73,7 +78,8 @@ export const data=[
         path:art6,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false 
      },
      {
          id:7,
@@ -82,7 +88,8 @@ export const data=[
         path:art7,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern' ,
+        bookmark:false
      },
      {
          id:8,
@@ -91,7 +98,8 @@ export const data=[
         path:art8,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'cultural' 
+        genre:'cultural',
+        bookmark:false 
      },
      {
         id:9,
@@ -100,7 +108,8 @@ export const data=[
         path:art9,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern' ,
+        bookmark:false
      },
      {
         id:10,
@@ -108,7 +117,8 @@ export const data=[
         path:art10,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern' ,
+        bookmark:false
      },
      {
         id:11,
@@ -117,7 +127,8 @@ export const data=[
         path:art11,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern' ,
+        bookmark:false
      },
      {
         id:12,
@@ -126,7 +137,8 @@ export const data=[
         path:art12,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false
      },
      {
         id:13,
@@ -135,7 +147,8 @@ export const data=[
         path:art13,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false
      },
      {
         id:14,
@@ -144,7 +157,8 @@ export const data=[
         path:art14,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false 
      },
      {
         id:15,
@@ -153,7 +167,8 @@ export const data=[
         path:art15,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'traditional' 
+        genre:'traditional' ,
+        bookmark:false
      },
      {
         id:16,
@@ -162,7 +177,8 @@ export const data=[
         path:art16 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:900,
-        genre:'cultural' 
+        genre:'cultural' ,
+        bookmark:false
      },
      {
         id:17,
@@ -171,7 +187,8 @@ export const data=[
         path:art17,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:300,
-        genre:'cinema' 
+        genre:'cinema' ,
+        bookmark:false
      },
      {
         id:18,
@@ -180,7 +197,8 @@ export const data=[
         path:art18 ,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:200,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false 
      },
      {
         id:19,
@@ -189,7 +207,8 @@ export const data=[
         path:art19,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:800,
-        genre:'modern' 
+        genre:'modern',
+        bookmark:false 
      },
      {
         id:20,
@@ -198,7 +217,8 @@ export const data=[
         path:art20,
         description:' Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint necessitatibus id voluptatibus quo eligendi praesentium deleniti, laborum deserunt error illum?',
         price:500,
-        genre:'traditional' 
+        genre:'traditional',
+        bookmark:false 
      },
      
 

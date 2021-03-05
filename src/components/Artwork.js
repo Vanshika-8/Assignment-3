@@ -13,11 +13,7 @@ class ArtWork extends Component {
         }
     }
 
-
-
-
-
-    getStorage = (key) => {
+     getStorage = (key) => {
         const result = localStorage.getItem(key)
         if (result) {
             return JSON.parse(result)
@@ -70,7 +66,7 @@ class ArtWork extends Component {
     }
 
 
-    settingTimeOut=()=>{
+    settingTimeOut = () => {
         this.setState({ showSuccessSnackbar: true }, () => {
             setTimeout(() => {
                 this.setState({ showSuccessSnackbar: false });
@@ -108,7 +104,7 @@ class ArtWork extends Component {
                             {/* ON the on click when we have to pass a parameter we use this function call*/}
                             {this.state.showSuccessSnackbar ? this.snackBar(item) : ''}
 
-                            <div onClick={this.settingTimeOut}    className="artwork__addtocart" >
+                            <div onClick={this.settingTimeOut} className="artwork__addtocart" >
                                 <AddToCart
                                     item={item}
                                     clickHandler={this.addToCart}
