@@ -1,42 +1,38 @@
-import React, { Component } from 'react';
+import React, { useState,useEffect } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Arrow } from '../reusableComponents/Logo';
-class CartPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cartItems: [],
-            total: 0
-        }
-    }
 
-    componentDidMount() {
-        const itemsInCart = this.getStorage('data')
+
+const CartPage=()=>  {
+
+     const [cartItem, setCartItems] = useState([])
+    const [total, setTotal] = useState(0)
+
+    useEffect(() => {
+        const itemsInCart = getStorage('data')
     if (itemsInCart.length > 0) {
-            const totalAmount=this.totalPrice(itemsInCart)
+            const totalAmount=totalPrice(itemsInCart)
             console.log(totalAmount)
-            this.setState({
-                cartItems: itemsInCart,
-                total:totalAmount
-            })
+            setCartItems(itemsInCart)
+            setTotal(totalAmount)
         }
+    }, [])
 
-
-    }
+    
     
 
 
-    totalPrice=(item)=>{
+   const totalPrice=(item)=>{
    return item.map(item => item).reduce((acc, item) => {
             return acc + (item.price*item.count)
         }, 0)
         
     }
 
-    cartItems = () => {
+    const cartItems = () => {
         return (
-            <div className="cartpage__header">{this.state.cartItems.map((item) => {
+            <div className="cartpage__header">{cartItem.map((item) => {
                 return <div className="cart__container" key={item.id}>
                     <div className="cards__items">
                         <img className="cart__image"
@@ -47,9 +43,9 @@ class CartPage extends Component {
                         <span className="artname-genre">Genre:{item.genre}</span>
                         <div className="cart__price-count">
                             <div className="count">
-                                <FaMinus onClick={() => this.decrementCounter(item.id)} className="minus__items" />
+                                <FaMinus onClick={() => decrementCounter(item.id)} className="minus__items" />
                                 <span className="art-count">{item.count}</span>
-                                <FaPlus onClick={() => this.incrementCounter(item.id)} className="plus__items" />
+                                <FaPlus onClick={() => incrementCounter(item.id)} className="plus__items" />
                             </div>
                             <span className="art-price">${item.price}</span></div>
                     </div>  </div>
@@ -57,7 +53,7 @@ class CartPage extends Component {
         )
     }
 
-    startShopping = () => {
+   const startShopping = () => {
 
         return (
             <div className="shopping__items">
@@ -67,14 +63,14 @@ class CartPage extends Component {
         )
     }
 
-    shoppingCart = () => {
+    const shoppingCart = () => {
         return (
             <React.Fragment>
                 <div className="total__price-shopping">
-                 {this.startShopping()}
+                 {startShopping()}
                 <div className="total__price">
                 <span className="heading__total">Total</span>
-                    <span className="total">${this.state.total}</span></div>
+                    <span className="total">${total}</span></div>
                     
                 </div>
             </React.Fragment>
@@ -82,25 +78,25 @@ class CartPage extends Component {
     }
 
 
-    clearingItems = () => {
+   const clearingItems = () => {
         localStorage.clear()
 
     }
 
 
-    checkout = () => {
+   const checkout = () => {
         //There are 2 types of calling for onclick-->
         //1.Anonymous function
         //2.Simple calling of a function.
         return (
             <div className="checkout__name" >
-                <div onClick={this.clearingItems} className="checkout"><Link className="shoppingCheckout" to='/Checkout'><div  >Checkout</div></Link></div>
+                <div onClick={clearingItems} className="checkout"><Link className="shoppingCheckout" to='/Checkout'><div  >Checkout</div></Link></div>
             </div>
         )
     }
 
 
-    getStorage = (key) => {
+    const getStorage = (key) => {
         const result = localStorage.getItem(key)
         if (result) {
             return JSON.parse(result)
@@ -109,13 +105,13 @@ class CartPage extends Component {
         }
     }
 
-    setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
+   const setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
 
-    clearStorage = (key) => {
+   const clearStorage = (key) => {
     
             return <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', margin: '75px' }}>
                 <div ><h2 className="cart__empty">The Cart is empty</h2></div>
-                <div>{this.startShopping()}</div>
+                <div>{startShopping()}</div>
             </div>
 
     
@@ -124,10 +120,10 @@ class CartPage extends Component {
 
 
 
-    incrementCounter = (id) => {
+  const  incrementCounter = (id) => {
         // let incrementer = this.state.cartItems.find(item => item.id === id)
         // let filteringId = this.state.cartItems.filter(item => item.id !== id)
-        let updateCount = this.state.cartItems.map((item) => {
+        let updateCount = cartItem.map((item) => {
             if (item.id === id) {
                 return {
                     ...item,
@@ -140,17 +136,15 @@ class CartPage extends Component {
 
         })
         console.log(updateCount)
-        const incrementPrice=this.totalPrice(updateCount)
+        const incrementPrice=totalPrice(updateCount)
         console.log(incrementPrice)
-        this.setState({
-            cartItems: updateCount,
-        total:incrementPrice
-        })
-        this.setStorage('data', updateCount)
+        setCartItems(updateCount)
+        setTotal(incrementPrice)
+    setStorage('data', updateCount)
     }
 
-    decrementCounter = (id) => {
-        let updatedCount = this.state.cartItems.map((item) => {
+   const decrementCounter = (id) => {
+        let updatedCount = cartItem.map((item) => {
             if (item.id === id) {
                 return {
                     ...item,
@@ -162,43 +156,37 @@ class CartPage extends Component {
             }
         })
         console.log(updatedCount)
-        const decrementPrice=this.totalPrice(updatedCount)
+        const decrementPrice=totalPrice(updatedCount)
         console.log(decrementPrice)
         const findingItems = updatedCount.find(item => item.id === id)
         if (findingItems.count === 0) {
             const filterItem = updatedCount.filter(item => item.id !== id)
-            this.setState({ cartItems: filterItem })
-            this.setStorage('data', filterItem)
+            setCartItems(filterItem)
+            setStorage('data', filterItem)
             return
         }
 
-        this.setState({ cartItems: updatedCount,
-        total:decrementPrice
-        })
-        this.setStorage('data', updatedCount)
+        setCartItems(updatedCount)
+        setTotal(decrementPrice)
+    setStorage('data', updatedCount)
 
 
 
     }
 
-
-
-    render() {
-
-
-        return (
+ return (
             <div className="cartpage">
                 <h1 className="cart__heading">Cart</h1>
-                {this.state.cartItems.length > 0 && this.cartItems()}
-                {this.state.cartItems.length > 0 ? this.shoppingCart() : ''}
-               {this.state.cartItems.length > 0 ? this.checkout() : ''}
+                {cartItem.length > 0 && cartItems()}
+                {cartItem.length > 0 ? shoppingCart() : ''}
+               {cartItem.length > 0 ? checkout() : ''}
 
 
 
-                <div> {this.state.cartItems.length > 0 ? '' : this.clearStorage('data')}</div>
+                <div> {cartItem.length > 0 ? '' : clearStorage('data')}</div>
             </div>
         );
-    }
+    
 }
 
 export default CartPage;

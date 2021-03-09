@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { FaBookmark,FaCheckCircle } from 'react-icons/fa';
 import { data } from '../imageJson';
 import { AddToCart, Button } from '../reusableComponents/button';
 
 
-class ArtWork extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentId: this.props.match.params.id,
-            showSuccessSnackbar: false
-        }
-    }
-
-     getStorage = (key) => {
+const ArtWork=(props)=> {
+    const [currentId, setCurrentId] = useState(props.match.params.id)
+    const [showSuccessSnackbar,setShowSuccessSnackbar]=useState(false)
+    
+    
+    const getStorage = (key) => {
         const result = localStorage.getItem(key)
         if (result) {
             return JSON.parse(result)
@@ -22,9 +18,9 @@ class ArtWork extends Component {
         }
     }
 
-    setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
+    const setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
 
-    addItems = (item) => {
+    const addItems = (item) => {
         item.count += 1
         return item
 
@@ -34,56 +30,51 @@ class ArtWork extends Component {
 
 
 
-    addToCart = (item) => {
-        const localStorageProduct = this.getStorage('data')
+    const addToCart = (item) => {
+        const localStorageProduct = getStorage('data')
 
-        const localItem = localStorageProduct.find(item => item.id.toString() === this.state.currentId)
+        const localItem = localStorageProduct.find(item => item.id.toString() === currentId)
 
 
-        const filteringIds = localStorageProduct.filter(item => item.id.toString() !== this.state.currentId)
+        const filteringIds = localStorageProduct.filter(item => item.id.toString() !== currentId)
 
         let updatedArray
         if (localItem) {
-            const updatedItem = this.addItems(localItem)
+            const updatedItem = addItems(localItem)
             updatedArray = [...filteringIds, updatedItem]
         } else {
-            const itemsInCart = data.find(item => item.id.toString() === this.state.currentId)
-            const updatedItems = this.addItems(itemsInCart)
+            const itemsInCart = data.find(item => item.id.toString() === currentId)
+            const updatedItems = addItems(itemsInCart)
             updatedArray = [...filteringIds, updatedItems]
         }
-        this.setState({ showSuccessSnackbar: !this.state.showSuccessSnackbar })
-        this.setStorage('data', updatedArray)
-
-
-    }
+        setShowSuccessSnackbar(!showSuccessSnackbar)
+        setStorage('data', updatedArray)
+ }
 
 
 
-    snackBar = (item) => {
+    const snackBar = (item) => {
         return (<div className="snackbar__message">
             <span><FaCheckCircle/>{item.name} is added to the cart</span>
         </div>)
     }
 
 
-    settingTimeOut = () => {
-        this.setState({ showSuccessSnackbar: true }, () => {
+  const settingTimeOut = () => {
+        setShowSuccessSnackbar(true, () => {
             setTimeout(() => {
-                this.setState({ showSuccessSnackbar: false });
+               setShowSuccessSnackbar(false)
             }, 2000);
         })
     }
 
 
-
-    render() {
-
-        const filteredData = (data.filter(item => item.id.toString() === this.state.currentId))
+ const filteredData = (data.filter(item => item.id.toString() === currentId))
         return (
             <div className="artwork-cards">
                 {filteredData.map((item) => {
                     return <div key={item.id} className="artwork__page">
-                        <div><Button history={this.props.history} title='Back to home' />
+                        <div><Button history={props.history} title='Back to home' />
                             <img className="artwork__img"
                                 src={item.path}
                                 alt={item.name} /></div>
@@ -102,12 +93,12 @@ class ArtWork extends Component {
                             </div>
 
                             {/* ON the on click when we have to pass a parameter we use this function call*/}
-                            {this.state.showSuccessSnackbar ? this.snackBar(item) : ''}
+                            {showSuccessSnackbar ? snackBar(item) : ''}
 
-                            <div onClick={this.settingTimeOut} className="artwork__addtocart" >
+                            <div onClick={settingTimeOut} className="artwork__addtocart" >
                                 <AddToCart
                                     item={item}
-                                    clickHandler={this.addToCart}
+                                    clickHandler={addToCart}
                                     title='Add to cart' />
                                 <FaBookmark className="bookmark__addtocart" />
                             </div>
@@ -118,7 +109,7 @@ class ArtWork extends Component {
                 })}
             </div>
         );
-    }
+    
 }
 
 export default ArtWork;

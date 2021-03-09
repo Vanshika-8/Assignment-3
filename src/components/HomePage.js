@@ -1,38 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState} from 'react';
 import { FaBookmark } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { data } from '../imageJson';
 import './styles/style.css';
-class HomePage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cards: data,
 
-        }
-    }
+const HomePage=(props)=> {
 
+const [cards, setCards] = useState(data)
 
-
-    bookmarkHandler = (id) => {
-        let updateBookMark = this.state.cards.map((item) => {
+   const bookmarkHandler = (id) => {
+        let updateBookMark = cards.map((item) => {
             if (item.id === id) {
                 item.bookmark = !item.bookmark
 
             }
             return item
         })
-        this.setState({
-            cards: updateBookMark,
-        })
-
+        setCards(updateBookMark)
 
     }
 
-    getCards = () => {
-
-        return (
-            this.state.cards.map(item =>
+   const getCards = () => {
+    return (
+            cards.map(item =>
 
                 <div key={item.id} className="homepage__cards">
                     <div className="homepage"> <Link to={`/artwork/${item.id}`}>
@@ -43,7 +33,7 @@ class HomePage extends Component {
                         <div className="details__homepage">
 
                             <span className="title">{item.name}</span>
-                            <span style={item.bookmark ? { color: 'red' } : { color: 'black' }}><FaBookmark className="bookmark" onClick={() => this.bookmarkHandler(item.id)} /></span>
+                            <span style={item.bookmark ? { color: 'red' } : { color: 'black' }}><FaBookmark className="bookmark" onClick={() => bookmarkHandler(item.id)} /></span>
                         </div>
                         <span className="artwork__genre">Genre:{item.genre}</span>
                     </div>
@@ -52,13 +42,13 @@ class HomePage extends Component {
         )
     }
 
-    render() {
+     
         return (
             <div className="homePage__list" >
-                {this.getCards()}
+                {getCards()}
             </div>
         );
-    }
+    
 }
 
 export default HomePage;
