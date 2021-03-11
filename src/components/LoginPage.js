@@ -1,77 +1,78 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
 const passwordRegex= /^[\d\w@-]{8,20}$/i
 const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
 
-class LoginPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: '',
-            emailErrorMessage: '',
-            passwordErrorMessage: '',
-           
-        }
-    }
-
-    validateHandler = (e) => {
+const LoginPage =()=> {
+   
+const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [emailErrorMessage, setemailErrorMessage] = useState('')
+    const [passwordErrorMessage, setpasswordErrorMessage] = useState('')
+    const [inputs, setInputs] = useState({});
+    
+    const validateHandler = (e) => {
         e.preventDefault();
-        const { email, password } = this.state
+        console.log('test1')
         if (email === '' && password === '') {
-            this.setState({
-                emailErrorMessage: 'Please enter a valid email address',
-                passwordErrorMessage: 'Please enter a valid password'
-            })
-
+    
+            setemailErrorMessage('Please enter a valid email address')
+            setpasswordErrorMessage('Please enter a valid password')
+            console.log('test2')
         }
-        if ((email === '') && password !== '') {
-            this.setState({
-                emailErrorMessage: 'Please enter a valid email address',
-                passwordErrorMessage: ''
-            })
+       else if ((email === '') && password !== '') {
+            setemailErrorMessage('Please enter a valid email address')
+            setpasswordErrorMessage('')
+            console.log('test3')
         }
-        if ((email !== '') && password === '') {
-            this.setState({
-                emailErrorMessage: '',
-                passwordErrorMessage: 'Please enter a valid password'
-            })
+       else if ((email !== '') && password === '') {
+            setemailErrorMessage('')
+            setpasswordErrorMessage('Please enter a valid password')
+            console.log('test3')
         }
 
-        if((!passwordRegex.test(password)) && password!==''){
-            this.setState({
-                passwordErrorMessage:'Please enter a valid password with 20 digits and special char'
-            })
-        }
-       if((!emailRegex.test(email))  && email!==''){
-           this.setState({
-               emailErrorMessage:'Please enter a valid email with @ and proper email'
-           })
-       }
-       if(email!=='' && password!=='')
+    //    else if((!passwordRegex.test(password)) && password!==''){
+    //         setpasswordErrorMessage('Please enter a valid password with 20 digits and special char')
+    //         console.log('test4')
+    //          }
+    //   else if((!emailRegex.test(email))  && email!==''){
+    //        setemailErrorMessage('Please enter a valid email with @ and proper email') 
+    //        console.log('test5')
+    //     }
+       else
        {
-          this.redirectHandler()
+          redirectHandler()
        }
        return
      
     }
 
-     redirectHandler = () => {
-         console.log(this.props)
-        this.props.history.push('/')
+   const redirectHandler = () => {
+      window.location.assign('/')
     }
 
-    handleChange = (e) => {
-        let name = e.target.name
-        let value = e.target.value
-        this.setState({
-            [name]: value
-        })
-
+   const handleChange = (e) => {
+    const {name, value} = e.target
+    console.log(name,'name')
+    console.log(value,'value')
+    if(name==='email'){
+        setEmail(inputs=>({...inputs , 'email':value}))
+        console.log(inputs)
+    }else{
+        setPassword(inputs=>({...inputs , 'password':value}))
+        console.log(inputs)
+    }
+  
+        // let name = e.target.name
+        // let value = e.target.value
+        // setInputs(inputs=>({...inputs , [name]:value}))
+        // const oldInputs=inputs
+        // const updatedInput={...oldInputs , name:value}
+        // setInputs(updatedInput)
     }
 
 
-    render() {
+    
 
         return (
 <div className="form-login">
@@ -83,10 +84,10 @@ class LoginPage extends Component {
                         <div className="email__input-wrapper">
                             <FaEnvelope className="logo__input" />
                             <input
-                             className={ this.state.emailErrorMessage ?  "email__input errorBorder" : 'email__input' } 
-                                name='email' value={this.state.email} onChange={this.handleChange} placeholder="Enter email" type="text" />
+                             className={emailErrorMessage ?  "email__input errorBorder" : 'email__input' } 
+                                name='email' value={inputs.email} onChange={handleChange} placeholder="Enter email" type="text" />
                         </div>
-                        <div className="errorMessages">{this.state.emailErrorMessage}</div>
+                        <div className="errorMessages">{emailErrorMessage}</div>
 
                     </div>
                     <div className="login__password">
@@ -94,17 +95,17 @@ class LoginPage extends Component {
                         <div className="password__input-wrapper">
                             <FaLock className="logo__input" />
                             <input 
-                            className={ this.state.passwordErrorMessage ?  "password__input errorBorder" : 'password__input' }
-                            value={this.state.password}
-                                name='password' onChange={this.handleChange} placeholder="Enter password" type="password" />
+                            className={ passwordErrorMessage ?  "password__input errorBorder" : 'password__input' }
+                            value={inputs.password}
+                                name='password' onChange={handleChange} placeholder="Enter password" type="password" />
 
                         </div>
-                        <div className="errorMessages">{this.state.passwordErrorMessage}</div>
+                        <div className="errorMessages">{passwordErrorMessage}</div>
 
 
                     </div>
                   
-                    <button onClick={this.validateHandler } className="login__submitbtn">Submit</button>
+                    <button onClick={validateHandler} className="login__submitbtn">Submit</button>
                 </form>
             </div>
             </div>
@@ -112,6 +113,6 @@ class LoginPage extends Component {
 
         );
     }
-}
+
 
 export default LoginPage;

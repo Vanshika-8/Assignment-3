@@ -506,3 +506,7 @@ h2.successmessage__shopping {
    line-height: 2.3rem;
    margin: 0px 30px;
 }
+
+a.backtohome__btn {
+    text-decoration: none;
+}

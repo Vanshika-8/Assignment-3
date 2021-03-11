@@ -1,27 +1,21 @@
 import React from 'react';
 import { Arrow } from '../Logo';
 import './styles/button-styles.css';
-
+import {Link} from 'react-router-dom';
 
 export const Button=(props)=>{
-
-  const clickBackToHome=()=>{
-    
-    props.history.push('/')
-  }
-
 return(
-    <div className="backtohome__btn" onClick={clickBackToHome}>
+    <Link to='/' className="backtohome__btn" >
    
     <span className="backtohome__link">  <Arrow className="arrow__logo"/> {props.title}</span>
-    </div>
+    </Link>
 )
 }
 
 export const AddToCart=(props)=>{
 
     const addingItems=(item)=>{
-    
+
 props.clickHandler(props.item)
     }
 
