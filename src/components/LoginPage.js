@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-const passwordRegex= /^[\d\w@-]{8,20}$/i
-const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
+// const passwordRegex= /^[\d\w@-]{8,20}$/i
+// const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
 
 const LoginPage =()=> {
    
