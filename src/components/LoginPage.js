@@ -9,7 +9,7 @@ const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailErrorMessage, setemailErrorMessage] = useState('')
     const [passwordErrorMessage, setpasswordErrorMessage] = useState('')
-    const [inputs, setInputs] = useState({});
+    const [inputs] = useState({});
     
     const validateHandler = (e) => {
         e.preventDefault();

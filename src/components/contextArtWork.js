@@ -7,7 +7,7 @@ import ArtWork from './Artwork';
 export const AddItemsContext=createContext();
 
 const AddItemsContextProvider=(props)=>{
-    const [currentId, setCurrentId] = useState(props.match.params.id)
+    const [currentId] = useState(props.match.params.id)
     const [showSuccessSnackbar,setShowSuccessSnackbar]=useState(false)
     
     
