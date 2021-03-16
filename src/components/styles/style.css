@@ -212,8 +212,10 @@ a.backtohome__link {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    outline: none;
+    
 }
+
+
 
 .errorMessages {
     font-size: 0.85em;
@@ -510,3 +512,22 @@ h2.successmessage__shopping {
 a.backtohome__btn {
     text-decoration: none;
 }
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 12px;
+      background:var(--red-color);
+      color: #fff;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -10px; 
+  }

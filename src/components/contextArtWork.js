@@ -3,13 +3,12 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { data } from '../imageJson';
 import ArtWork from './Artwork';
 
-
 export const AddItemsContext=createContext();
 
 const AddItemsContextProvider=(props)=>{
     const [currentId] = useState(props.match.params.id)
     const [showSuccessSnackbar,setShowSuccessSnackbar]=useState(false)
-    
+   
     
     const getStorage = (key) => {
         const result = localStorage.getItem(key)
@@ -19,7 +18,7 @@ const AddItemsContextProvider=(props)=>{
             return []
         }
     }
-
+   
     const setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
 
     const addItems = (item) => {
@@ -62,12 +61,12 @@ const AddItemsContextProvider=(props)=>{
     }
 
 
-  const settingTimeOut = () => {
-        setShowSuccessSnackbar(true, () => {
+
+    const settingTimeOut = () => {
+        setShowSuccessSnackbar(true)
             setTimeout(() => {
                setShowSuccessSnackbar(false)
             }, 2000);
-        })
     }
 
 
@@ -75,7 +74,9 @@ const artworkContextValues={currentId , showSuccessSnackbar,  getStorage,setStor
 
  return(
      <AddItemsContext.Provider value={artworkContextValues}>
+
      <ArtWork  />
+    
      {props.childern}
      
      </AddItemsContext.Provider>

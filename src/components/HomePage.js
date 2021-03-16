@@ -44,6 +44,7 @@ const [cards, setCards] = useState(data)
 
      
         return (
+            
             <div className="homePage__list" >
                 {getCards()}
             </div>

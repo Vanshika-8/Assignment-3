@@ -3,6 +3,7 @@ import './App.css';
 import { HashRouter as Router,  Switch,Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
+import ParentRef from './components/reference';
 import RegisterPage from './components/RegisterPage';
 import ContextArtWork from './components/contextArtWork';
 import CartPage from './components/CartPage';
@@ -16,12 +17,13 @@ import { NavBar } from './components/NavBar';
 class App extends Component {
   render() { 
     return (
+    
       <Router >
       <div className="container">
      <NavBar/>
       <Switch>
       <Route exact path='/'><HomePage/></Route>
-      <Route exact path='/login' component={LoginPage}></Route>
+      <Route exact path='/login' component={ParentRef}></Route>
       <Route exact path='/register' component={RegisterPage}></Route>
     <Route path='/artwork/:id' component={ContextArtWork}></Route>
       <Route exact path='/cart'><CartPage/></Route>
