@@ -513,17 +513,13 @@ a.backtohome__btn {
     text-decoration: none;
 }
 
-.badge {
+.itemsCounting {
     padding-left: 9px;
     padding-right: 9px;
     border-radius: 9px;
   }
   
-  .label-warning[href],
-  .badge-warning[href] {
-    background-color: #c67605;
-  }
-  #lblCartCount {
+  #cartCount {
       font-size: 12px;
       background:var(--red-color);
       color: #fff;

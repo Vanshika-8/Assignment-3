@@ -35,7 +35,7 @@ return(
      <li><NavLink  exact  to='/cart' 
      className={pathname === '/cart' ? 'redirecting__links shoppingLink' : 'redirecting__links activeLink'} >
      <ShoppingBag />
-     <span  className='badge badge-warning' id='lblCartCount'>{totalCount}</span>
+     <span  className='itemsCounting' id='cartCount'>{totalCount}</span>
      </NavLink></li>
    
     </ul> 
