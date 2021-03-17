@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaLock } from 'react-icons/fa';
-const passwordRegex= /^[\d\w@-]{8,20}$/i
-const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
 
 const LoginPage =React.forwardRef((props,ref)=> {
-   
+    const passwordRegex= /^[\d\w@-]{8,20}$/i
+    const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
+    
     const [email, setEmail] = useState('')
         const [password, setPassword] = useState('')
         const [emailErrorMessage, setemailErrorMessage] = useState('')

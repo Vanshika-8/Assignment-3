@@ -1,13 +1,15 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect ,useContext} from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Arrow } from '../reusableComponents/Logo';
+import { AddItemsContext } from '../App';
 
 
 const CartPage=()=>  {
-
-     const [cartItem, setCartItems] = useState([])
+    const{data,setStorage}=useContext(AddItemsContext)
+    const [cartItem, setCartItems] = useState([])
     const [total, setTotal] = useState(0)
+
 
     useEffect(() => {
         const itemsInCart = getStorage('data')
@@ -17,7 +19,7 @@ const CartPage=()=>  {
             setCartItems(itemsInCart)
             setTotal(totalAmount)
         }
-    }, [])
+    }, [data])
 
     
     
@@ -105,7 +107,7 @@ const CartPage=()=>  {
         }
     }
 
-   const setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
+//    const setStorage = (key, value) => { localStorage.setItem(key, JSON.stringify(value)) }
 
    const clearStorage = (key) => {
     
