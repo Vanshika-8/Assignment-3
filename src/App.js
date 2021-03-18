@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";

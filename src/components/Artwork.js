@@ -5,7 +5,6 @@ import { data } from "../imageJson";
 import { AddToCart, Button } from "../reusableComponents/button";
 export const locationItemContext=createContext()
 const ArtWork = (props) => {
-  console.log(props)
 const [currentId]=useState(props.match.params.id)
   const {
     showSuccessSnackbar,
