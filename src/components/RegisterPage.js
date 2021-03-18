@@ -6,6 +6,7 @@ const emailRegex=/^([a-z\d-]+)@([a-z\d-]+)([a-z]{2,8})?$/i
 class RegisterPage extends Component {
     constructor(props) {
         super(props);
+        this.inputRef=React.createRef();
         this.state = {
             email: '',
             password: '',
@@ -16,6 +17,9 @@ class RegisterPage extends Component {
         }
     }
 
+    componentDidMount(){
+        this.inputRef.current.focus()
+    }
 
     validateHandler = (e) => {
         e.preventDefault();
@@ -112,7 +116,7 @@ class RegisterPage extends Component {
 
                         <div className="email__input-wrapper">
                             <FaEnvelope className="logo__input" />
-                            <input
+                            <input ref={this.inputRef}
                              className={ this.state.emailErrorMessage ?  "email__input errorBorder" : 'email__input' } 
                                 name='email' value={this.state.email} onChange={this.handleChange} placeholder="Enter email" type="text" />
                         </div>

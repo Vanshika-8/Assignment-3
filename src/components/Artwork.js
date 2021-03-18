@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
-import { AddToCart, Button } from "../reusableComponents/button";
+import React, { createContext, useContext, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
-import { data } from "../imageJson";
 import { AddItemsContext } from "../App";
-
+import { data } from "../imageJson";
+import { AddToCart, Button } from "../reusableComponents/button";
+export const locationItemContext=createContext()
 const ArtWork = (props) => {
   console.log(props)
-  
+const [currentId]=useState(props.match.params.id)
   const {
-    currentId,
     showSuccessSnackbar,
     addToCart,
     snackBar,
@@ -16,6 +15,7 @@ const ArtWork = (props) => {
   } = useContext(AddItemsContext);
   const filteredData = data.filter((item) => item.id.toString() === currentId);
   return (
+    <locationItemContext.Provider value={{currentId}}>
     <div className="artwork-cards">
       {filteredData.map((item) => {
         return (
@@ -41,7 +41,7 @@ const ArtWork = (props) => {
               <div onClick={settingTimeOut} className="artwork__addtocart">
                 <AddToCart
                   item={item}
-                  clickHandler={addToCart}
+                  clickHandler={()=>addToCart(currentId)}
                   title="Add to cart"
                 />
                 <FaBookmark className="bookmark__addtocart" />
@@ -51,6 +51,7 @@ const ArtWork = (props) => {
         );
       })}
     </div>
+    </locationItemContext.Provider>
   );
 };
 

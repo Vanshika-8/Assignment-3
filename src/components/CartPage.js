@@ -15,11 +15,11 @@ const CartPage=()=>  {
         const itemsInCart = getStorage('data')
     if (itemsInCart.length > 0) {
             const totalAmount=totalPrice(itemsInCart)
-            console.log(totalAmount)
             setCartItems(itemsInCart)
             setTotal(totalAmount)
         }
-    }, [data])
+    }, [data]
+    )
 
     
     
