@@ -32,36 +32,23 @@ const App = () => {
     setData(getStorage("data"));
   };
 
-  const addItems = (item) => {
-    item.count += 1;
-
-    return item;
-  };
+  
 
   const addToCart = (currentId) => {
     const localStorageProduct = getStorage("data");
-
     const localItem = localStorageProduct.find(
       (item) => item.id.toString() === currentId
     );
-
-    const filteringIds = localStorageProduct.filter(
-      (item) => item.id.toString() !== currentId
-    );
-
     let updatedArray;
-
     if (localItem) {
-      const updatedItem = addItems(localItem);
-      updatedArray = [...filteringIds, updatedItem];
+      updatedArray = localStorageProduct.map((item) =>
+        item.id == currentId ? { ...item, count: item.count + 1 } : item
+      );
     } else {
       const itemsInCart = metaData.find(
         (item) => item.id.toString() === currentId
       );
-      console.log(currentId)
-      console.log(itemsInCart,'cart')
-      const updatedItems = addItems(itemsInCart);
-      updatedArray = [...filteringIds, updatedItems];
+      updatedArray = [...localStorageProduct, itemsInCart];
     }
     setShowSuccessSnackbar(!showSuccessSnackbar);
     setStorage("data", updatedArray);
@@ -90,7 +77,6 @@ const App = () => {
     data,
     getStorage,
     setStorage,
-    addItems,
     addToCart,
     snackBar,
     settingTimeOut,
