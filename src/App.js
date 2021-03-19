@@ -42,7 +42,7 @@ const App = () => {
     let updatedArray;
     if (localItem) {
       updatedArray = localStorageProduct.map((item) =>
-        item.id == currentId ? { ...item, count: item.count + 1 } : item
+        item.id.toString() === currentId ? { ...item, count: item.count + 1 } : item
       );
     } else {
       const itemsInCart = metaData.find(
