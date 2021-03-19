@@ -1,9 +1,8 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
 import { AddItemsContext } from "../App";
 import { data } from "../imageJson";
 import { AddToCart, Button } from "../reusableComponents/button";
-export const locationItemContext=createContext()
 const ArtWork = (props) => {
 const [currentId]=useState(props.match.params.id)
   const {
@@ -14,7 +13,7 @@ const [currentId]=useState(props.match.params.id)
   } = useContext(AddItemsContext);
   const filteredData = data.filter((item) => item.id.toString() === currentId);
   return (
-    <locationItemContext.Provider value={{currentId}}>
+   
     <div className="artwork-cards">
       {filteredData.map((item) => {
         return (
@@ -50,7 +49,7 @@ const [currentId]=useState(props.match.params.id)
         );
       })}
     </div>
-    </locationItemContext.Provider>
+  
   );
 };
 
