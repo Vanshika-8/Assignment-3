@@ -15,6 +15,7 @@ import AppReducer from './components/AppReducer';
 
 
 export const AddItemsContext = createContext();
+
 const App = ({children}) => {
 
   const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
@@ -22,53 +23,7 @@ const App = ({children}) => {
   const [total, setTotal] = useState(0)
 
  
-      
-
-//   const  incrementCounter = (id) => {
-//     let updateCount = cartItem.map((item) => {
-//         if (item.id === id) {
-//             return {
-//                 ...item,
-//                 count: item.count + 1
-//             }
-//         }
-//         else {
-//             return item
-//         }})
-//     const incrementPrice=totalPrice(updateCount)
-//     setCartItems(updateCount)
-//     setTotal(incrementPrice)
-// setStorage('data', updateCount)
-// }
-
-// const decrementCounter = (id) => {
-//     let updatedCount = cartItem.map((item) => {
-//         if (item.id === id) {
-//             return {
-//                 ...item,
-//                 count: item.count - 1
-//             }
-//         }
-//         else {
-//             return item
-//         }
-//     })
-//     const decrementPrice=totalPrice(updatedCount)
-//     const findingItems = updatedCount.find(item => item.id === id)
-//     if (findingItems.count === 0) {
-//         const filterItem = updatedCount.filter(item => item.id !== id)
-//         setCartItems(filterItem)
-//         setStorage('data', filterItem)
-//         return
-//     }
-//    setCartItems(updatedCount)
-//     setTotal(decrementPrice)
-//    setStorage('data', updatedCount)
-// }
-  
-
-
-  const totalPrice=(item)=>{
+ const totalPrice=(item)=>{
     return item.map(item => item).reduce((acc, item) => {
              return acc + (item.price*item.count)
          }, 0)
@@ -96,6 +51,7 @@ const App = ({children}) => {
     count:data
     .map((item) => item.count)
     .reduce((acc, ite) => acc + ite, 0)
+    
   }
   
   const [state, dispatch] = useReducer(AppReducer, initialState)
@@ -103,14 +59,14 @@ const App = ({children}) => {
   const  incrementCounter = (id) => {
     dispatch({
       type:'INCREMENT_COUNT',
-      payload:id,
+      payload:{id,setCartItems,setTotal,setStorage,totalPrice,cartItem}
     })
     }
     
     const decrementCounter = (id) => {
       dispatch({
         type:'DECREMENT_COUNT',
-        payload:id,
+        payload:{id,setCartItems,setTotal,setStorage,totalPrice,cartItem}
       })
     }
 
@@ -153,7 +109,7 @@ const App = ({children}) => {
   };
 
   const artworkContextValues = {
-    count:state.count,
+    count:state,
     showSuccessSnackbar,
     data,
     getStorage,
