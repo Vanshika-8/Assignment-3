@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, {createContext, useState,useReducer } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -11,10 +11,69 @@ import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 import "./components/styles/style.css";
 import { data as metaData } from "./imageJson";
+import AppReducer from './components/AppReducer';
+
 
 export const AddItemsContext = createContext();
-const App = () => {
-  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false);
+const App = ({children}) => {
+
+  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
+  const [cartItem, setCartItems] = useState([])
+  const [total, setTotal] = useState(0)
+
+ 
+      
+
+//   const  incrementCounter = (id) => {
+//     let updateCount = cartItem.map((item) => {
+//         if (item.id === id) {
+//             return {
+//                 ...item,
+//                 count: item.count + 1
+//             }
+//         }
+//         else {
+//             return item
+//         }})
+//     const incrementPrice=totalPrice(updateCount)
+//     setCartItems(updateCount)
+//     setTotal(incrementPrice)
+// setStorage('data', updateCount)
+// }
+
+// const decrementCounter = (id) => {
+//     let updatedCount = cartItem.map((item) => {
+//         if (item.id === id) {
+//             return {
+//                 ...item,
+//                 count: item.count - 1
+//             }
+//         }
+//         else {
+//             return item
+//         }
+//     })
+//     const decrementPrice=totalPrice(updatedCount)
+//     const findingItems = updatedCount.find(item => item.id === id)
+//     if (findingItems.count === 0) {
+//         const filterItem = updatedCount.filter(item => item.id !== id)
+//         setCartItems(filterItem)
+//         setStorage('data', filterItem)
+//         return
+//     }
+//    setCartItems(updatedCount)
+//     setTotal(decrementPrice)
+//    setStorage('data', updatedCount)
+// }
+  
+
+
+  const totalPrice=(item)=>{
+    return item.map(item => item).reduce((acc, item) => {
+             return acc + (item.price*item.count)
+         }, 0)
+         
+     }
 
   const getStorage = (key) => {
     const result = localStorage.getItem(key);
@@ -32,7 +91,28 @@ const App = () => {
     setData(getStorage("data"));
   };
 
+
+  const initialState={
+    count:data
+    .map((item) => item.count)
+    .reduce((acc, ite) => acc + ite, 0)
+  }
   
+  const [state, dispatch] = useReducer(AppReducer, initialState)
+  
+  const  incrementCounter = (id) => {
+    dispatch({
+      type:'INCREMENT_COUNT',
+      payload:id,
+    })
+    }
+    
+    const decrementCounter = (id) => {
+      dispatch({
+        type:'DECREMENT_COUNT',
+        payload:id,
+      })
+    }
 
   const addToCart = (currentId) => {
     const localStorageProduct = getStorage("data");
@@ -73,6 +153,7 @@ const App = () => {
   };
 
   const artworkContextValues = {
+    count:state.count,
     showSuccessSnackbar,
     data,
     getStorage,
@@ -80,11 +161,19 @@ const App = () => {
     addToCart,
     snackBar,
     settingTimeOut,
+    incrementCounter,
+    decrementCounter,
+    total,
+    cartItem,
+    totalPrice,
+    setCartItems,
+    setTotal
   };
 
   return (
     <AddItemsContext.Provider value={artworkContextValues}>
       <Router>
+      {children}
         <div className="container">
           <NavBar />
           <Switch>
