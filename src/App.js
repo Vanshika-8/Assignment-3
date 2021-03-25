@@ -1,4 +1,4 @@
-import React, {createContext, useState,useReducer } from "react";
+import React, { createContext, useState, useReducer } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -11,24 +11,22 @@ import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 import "./components/styles/style.css";
 import { data as metaData } from "./imageJson";
-import AppReducer from './components/AppReducer';
-
+import AppReducer from "./components/AppReducer";
 
 export const AddItemsContext = createContext();
 
-const App = ({children}) => {
+const App = ({ children }) => {
+  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false);
+  const [cartItem, setCartItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
-  const [showSuccessSnackbar, setShowSuccessSnackbar] = useState(false)
-  const [cartItem, setCartItems] = useState([])
-  const [total, setTotal] = useState(0)
-
- 
- const totalPrice=(item)=>{
-    return item.map(item => item).reduce((acc, item) => {
-             return acc + (item.price*item.count)
-         }, 0)
-         
-     }
+  const totalPrice = (item) => {
+    return item
+      .map((item) => item)
+      .reduce((acc, item) => {
+        return acc + item.price * item.count;
+      }, 0);
+  };
 
   const getStorage = (key) => {
     const result = localStorage.getItem(key);
@@ -46,29 +44,25 @@ const App = ({children}) => {
     setData(getStorage("data"));
   };
 
+  const initialState = {
+    count: data.map((item) => item.count).reduce((acc, ite) => acc + ite, 0),
+  };
 
-  const initialState={
-    count:data
-    .map((item) => item.count)
-    .reduce((acc, ite) => acc + ite, 0)
-    
-  }
-  
-  const [state, dispatch] = useReducer(AppReducer, initialState)
-  
-  const  incrementCounter = (id) => {
+  const [state, dispatch] = useReducer(AppReducer, initialState);
+
+  const incrementCounter = (id) => {
     dispatch({
-      type:'INCREMENT_COUNT',
-      payload:{id,setCartItems,setTotal,setStorage,totalPrice,cartItem}
-    })
-    }
-    
-    const decrementCounter = (id) => {
-      dispatch({
-        type:'DECREMENT_COUNT',
-        payload:{id,setCartItems,setTotal,setStorage,totalPrice,cartItem}
-      })
-    }
+      type: "INCREMENT_COUNT",
+      payload: { id, setCartItems, setTotal, setStorage, totalPrice, cartItem },
+    });
+  };
+
+  const decrementCounter = (id) => {
+    dispatch({
+      type: "DECREMENT_COUNT",
+      payload: { id, setCartItems, setTotal, setStorage, totalPrice, cartItem },
+    });
+  };
 
   const addToCart = (currentId) => {
     const localStorageProduct = getStorage("data");
@@ -78,7 +72,9 @@ const App = ({children}) => {
     let updatedArray;
     if (localItem) {
       updatedArray = localStorageProduct.map((item) =>
-        item.id.toString() === currentId ? { ...item, count: item.count + 1 } : item
+        item.id.toString() === currentId
+          ? { ...item, count: item.count + 1 }
+          : item
       );
     } else {
       const itemsInCart = metaData.find(
@@ -109,7 +105,7 @@ const App = ({children}) => {
   };
 
   const artworkContextValues = {
-    count:state,
+    count: state,
     showSuccessSnackbar,
     data,
     getStorage,
@@ -123,13 +119,13 @@ const App = ({children}) => {
     cartItem,
     totalPrice,
     setCartItems,
-    setTotal
+    setTotal,
   };
 
   return (
     <AddItemsContext.Provider value={artworkContextValues}>
       <Router>
-      {children}
+        {children}
         <div className="container">
           <NavBar />
           <Switch>
