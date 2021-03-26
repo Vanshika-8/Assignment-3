@@ -54,6 +54,9 @@ const AppReducer = (state, action) => {
         ...state,
         count: updatedCount,
       };
+    case "CLEAR_CART":
+      localStorage.clear();
+      setStorage("data", []);
 
     default:
       return state;

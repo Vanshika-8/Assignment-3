@@ -6,7 +6,7 @@ import { AddItemsContext } from '../App';
 
 
 const CartPage=()=>  {
-     const{cartItem,decrementCounter,incrementCounter,total,totalPrice,setCartItems,setTotal,data}=useContext(AddItemsContext)
+     const{cartItem,decrementCounter,incrementCounter,total,totalPrice,setCartItems,setTotal,data,clearingItems}=useContext(AddItemsContext)
     useEffect(() => {
         const itemsInCart = getStorage('data')
     if (itemsInCart.length > 0) {
@@ -63,10 +63,7 @@ return (
     }
 
 
-   const clearingItems = () => {
-        localStorage.clear()
-
-    }
+  
 
 
    const checkout = () => {

@@ -41,7 +41,7 @@ const App = ({ children }) => {
 
   const setStorage = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
-    setData(getStorage("data"));
+    setData(getStorage(key));
   };
 
   const initialState = {
@@ -60,6 +60,13 @@ const App = ({ children }) => {
   const decrementCounter = (id) => {
     dispatch({
       type: "DECREMENT_COUNT",
+      payload: { id, setCartItems, setTotal, setStorage, totalPrice, cartItem },
+    });
+  };
+
+  const clearingItems = (id) => {
+    dispatch({
+      type: "CLEAR_CART",
       payload: { id, setCartItems, setTotal, setStorage, totalPrice, cartItem },
     });
   };
@@ -120,6 +127,7 @@ const App = ({ children }) => {
     totalPrice,
     setCartItems,
     setTotal,
+    clearingItems,
   };
 
   return (
