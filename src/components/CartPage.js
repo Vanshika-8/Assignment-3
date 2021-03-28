@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Arrow } from "../reusableComponents/Logo";
-import { AddItemsContext } from "../App";
+import { AddItemsContext } from "../components/Context";
 
 const CartPage = () => {
   const {

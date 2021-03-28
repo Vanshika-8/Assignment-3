@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "../components/styles/style.css";
 import { Logo, ShoppingBag } from "../reusableComponents/Logo";
-import { AddItemsContext } from "../App";
+import { AddItemsContext } from "../components/Context";
 
 export const NavBar = () => {
   let { pathname } = useLocation();

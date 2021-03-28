@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaBookmark } from "react-icons/fa";
-import { AddItemsContext } from "../App";
+import { AddItemsContext } from "../components/Context";
 import { data } from "../imageJson";
 import { AddToCart, Button } from "../reusableComponents/button";
 const ArtWork = (props) => {
